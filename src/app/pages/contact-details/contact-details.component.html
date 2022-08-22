@@ -1,0 +1,6 @@
+<section *ngIf="contact" class="contact-details">
+  <p>Name: {{ contact.name }}</p>
+  <p>email: {{ contact.email }}</p>
+  <p>phone: {{ contact.phone }}</p>
+  <img src="https://robohash.org/{{ contact._id }}?set=set4" alt="" />
+</section>
