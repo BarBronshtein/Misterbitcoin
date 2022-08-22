@@ -1,0 +1,28 @@
+.main-app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  header {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    background-color: #4caf50;
+    color: whitesmoke;
+    margin-bottom: 30px;
+    font-size: 1.2em;
+  }
+
+  main {
+    flex-grow: 1;
+  }
+
+  footer {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    color: whitesmoke;
+    background-color: #151515;
+    font-size: 1.2em;
+  }
+}
