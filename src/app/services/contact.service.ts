@@ -161,6 +161,10 @@ export class ContactService {
     this.loadContacts();
   }
 
+  public getEmptyContact() {
+    return { name: '', email: '', phone: '' };
+  }
+
   public deleteContact(id: string) {
     //mock the server work
     this._contactsDb = this._contactsDb.filter((contact) => contact._id !== id);
@@ -182,6 +186,7 @@ export class ContactService {
     );
     // change the observable data in the service - let all the subscribers know
     this._contacts$.next(this._sort(this._contactsDb));
+    return of(contact);
   }
 
   private _addContact(contact: Contact) {
@@ -191,6 +196,7 @@ export class ContactService {
       newContact.setId(_getRandomId());
     this._contactsDb.push(newContact);
     this._contacts$.next(this._sort(this._contactsDb));
+    return of(newContact);
   }
 
   private _bubbleSort(contacts: Contact[]) {
@@ -242,4 +248,3 @@ function _swap(arr: any, i: number, j: number) {
 }
 
 // TODO: create a better sorting algorithm using BubbleSort(when array is almost sorted Insertion and Bubble sorts perfrom almost to a linear time complexity;
-// TODO: improve filter method efficentcy using Frequency counter using map object or Hash table

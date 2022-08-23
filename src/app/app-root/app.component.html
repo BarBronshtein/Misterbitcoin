@@ -1,12 +1,17 @@
 <section class="main-app">
   <header class="container">
     <h1>Mister Bitcoin</h1>
+    <nav>
+      <ul>
+        <a routerLink="/">Home</a>
+        <a routerLink="/contact">Contacts</a>
+        <a routerLink="/stats">Stats</a>
+      </ul>
+    </nav>
   </header>
 
   <main class="container">
-    <home></home>
-    <contact-app></contact-app>
-    <stats></stats>
+    <router-outlet></router-outlet>
   </main>
 
   <footer class="container">

@@ -1,5 +1,5 @@
-<section class="contact-preview">
-  <section (click)="onSelect.emit(contact._id)" class="info">
+<section routerLink="{{ '/contact/' + contact._id }}" class="contact-preview">
+  <section class="info">
     <section class="data">
       <p>Name: {{ contact.name }}</p>
       <p>email: {{ contact.email }}</p>
@@ -9,5 +9,5 @@
       <button (click)="onRemoveContact()" class="remove-btn">X</button>
     </section>
   </section>
-  <img src="https://robohash.org/{{ contact._id }}?set=set4" alt="" />
+  <img src="https://robohash.org/{{ contact._id }}?set=set2" />
 </section>
