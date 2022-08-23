@@ -14,6 +14,8 @@ import { ContactDetailsComponent } from './pages/contact-details/contact-details
 import { HomeComponent } from './pages/home/home.component';
 import { StatsComponent } from './pages/stats/stats.component';
 import { ChartComponent } from './cmps/chart/chart.component';
+import { UserMsgComponent } from './cmps/user-msg/user-msg.component';
+import { ContactEditComponent } from './pages/contact-edit/contact-edit.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { ChartComponent } from './cmps/chart/chart.component';
     HomeComponent,
     StatsComponent,
     ChartComponent,
+    UserMsgComponent,
+    ContactEditComponent,
   ],
   imports: [
     BrowserModule,

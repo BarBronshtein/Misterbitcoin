@@ -2,5 +2,7 @@
   <p>Name: {{ contact.name }}</p>
   <p>email: {{ contact.email }}</p>
   <p>phone: {{ contact.phone }}</p>
-  <img src="https://robohash.org/{{ contact._id }}?set=set4" alt="" />
+  <img src="https://robohash.org/{{ contact._id }}?set=set2" alt="" />
+  <button (click)="onBack()">Go Back</button>
+  <button routerLink="{{ '/contact/edit/' + contact._id }}">Edit</button>
 </section>

@@ -13,8 +13,6 @@ export class ContactAppComponent implements OnInit {
   contacts!: Contact[];
   contacts$!: Observable<Contact[]>;
 
-  selectedContactId!: string;
-
   ngOnInit(): void {
     this.contactService.loadContacts();
     this.contacts$ = this.contactService.contacts$;
@@ -22,9 +20,5 @@ export class ContactAppComponent implements OnInit {
 
   onRemoveContact(contactId: string) {
     this.contactService.deleteContact(contactId);
-  }
-
-  onSelectContactId(contactId: string) {
-    this.selectedContactId = contactId;
   }
 }
