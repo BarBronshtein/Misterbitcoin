@@ -1,23 +1,26 @@
 <section *ngIf="contact" class="contact-edit">
-  <h2>{{ contact._id ? "Edit" : "Add" }} Contact</h2>
-  {{ contact | json }}
+  <h2 class="text-gradient">{{ contact._id ? "Edit" : "Add" }} Contact</h2>
   <form (ngSubmit)="onSaveContact()">
-    <label for="name">Name</label>
-    <input
-      [(ngModel)]="contact.name"
-      type="text"
-      name="name"
-      id="name"
-      pattern="[a-zA-Z]+ [a-zA-Z]+ "
-    />
+    <div class="form-item">
+      <label for="name">Name</label>
+      <input
+        [(ngModel)]="contact.name"
+        type="text"
+        name="name"
+        id="name"
+        pattern="[a-zA-Z]+ [a-zA-Z]+ "
+      />
+    </div>
+    <div class="form-item">
+      <label for="phone">Phone</label>
+      <input [(ngModel)]="contact.phone" type="text" name="phone" id="phone" />
+    </div>
+    <div class="form-item">
+      <label for="email">Email</label>
+      <input [(ngModel)]="contact.email" type="email" name="email" id="email" />
+    </div>
 
-    <label for="phone">Phone</label>
-    <input [(ngModel)]="contact.phone" type="text" name="phone" id="phone" />
-
-    <label for="email">Email</label>
-    <input [(ngModel)]="contact.email" type="email" name="email" id="email" />
-
-    <button>Save</button>
+    <button class="btn active">Save</button>
   </form>
-  <a routerLink="{{ '/contact' }}">Return to contacts</a>
+  <a class="go-back" routerLink="{{ '/contact' }}">Back</a>
 </section>

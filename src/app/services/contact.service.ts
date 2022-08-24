@@ -195,10 +195,9 @@ export class ContactService {
       contact.name,
       contact.email,
       contact.phone,
-      _getRandomId()
+      getRandomId()
     );
-    if (typeof newContact.setId === 'function')
-      newContact.setId(_getRandomId());
+    if (typeof newContact.setId === 'function') newContact.setId(getRandomId());
     this._contactsDb.push(newContact);
     this._contacts$.next(this._sort(this._contactsDb));
     return of(newContact);
@@ -238,7 +237,7 @@ export class ContactService {
   }
 }
 
-function _getRandomId(length = 8): string {
+export function getRandomId(length = 8): string {
   let result = '';
   const characters =
     'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
