@@ -1,0 +1,35 @@
+form {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  .form-item {
+    display: inline-flex;
+    position: relative;
+    // justify-content: center;
+    align-items: center;
+    & > :first-child {
+      margin-inline-end: 10px;
+      padding: 1rem 0;
+    }
+    & > :last-child {
+      position: absolute;
+      width: calc(100% - 4rem);
+      left: 4rem;
+    }
+    margin-block-end: 1rem;
+  }
+  .btn {
+    display: inline-flex;
+    width: 30%;
+    justify-content: center;
+    margin: auto;
+  }
+}
+.go-back {
+  background-color: #fff;
+  padding: 0.6rem;
+  &:hover {
+    background-image: linear-gradient(to right bottom, #fbdb89, #f48982);
+    color: #fff;
+  }
+}

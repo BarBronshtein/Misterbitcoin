@@ -1,4 +1,7 @@
-<section routerLink="{{ '/contact/' + contact._id }}" class="contact-preview">
+<section
+  routerLink="{{ '/contact/' + contact._id }}"
+  class="contact-preview gradient"
+>
   <section class="info">
     <section class="data">
       <p>Name: {{ contact.name }}</p>
@@ -15,5 +18,8 @@
       </button>
     </section>
   </section>
-  <img src="https://robohash.org/{{ contact._id }}?set=set2" />
+  <img
+    style="width: 100px"
+    src="https://robohash.org/{{ contact._id }}?set=set2"
+  />
 </section>

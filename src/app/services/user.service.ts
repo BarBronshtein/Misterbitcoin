@@ -1,27 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Contact } from '../models';
 import { Move } from '../models/move.model';
-
+import { getRandomId } from './contact.service';
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
   USER_KEY: string;
+
   constructor() {
     this.USER_KEY = 'loggedinUser';
   }
 
   public get loggedinUser() {
-    return (
-      JSON.parse(localStorage.getItem(this.USER_KEY) || 'null') || {
-        name: 'Barry Allen',
-        coins: 377,
-        moves: [],
-      }
-    );
+    return JSON.parse(localStorage.getItem(this.USER_KEY) || 'null');
   }
-  public set loggedinUser(user) {
-    this.loggedinUser = user;
+
+  public logout() {
+    localStorage.setItem(this.USER_KEY, 'null');
   }
 
   public addMove(contact: Contact, amount: number) {
@@ -44,8 +40,8 @@ export class UserService {
   }
 
   private _signup(name: string) {
-    this.loggedinUser = { name, coins: 100, moves: [] };
-    localStorage.setItem(this.USER_KEY, JSON.stringify(this.loggedinUser));
+    const user = { name, coins: 100, moves: [], _id: getRandomId() };
+    localStorage.setItem(this.USER_KEY, JSON.stringify(user));
     return this.loggedinUser;
   }
 
