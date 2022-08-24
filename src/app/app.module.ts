@@ -16,6 +16,7 @@ import { StatsComponent } from './pages/stats/stats.component';
 import { ChartComponent } from './cmps/chart/chart.component';
 import { UserMsgComponent } from './cmps/user-msg/user-msg.component';
 import { ContactEditComponent } from './pages/contact-edit/contact-edit.component';
+import { SignupComponent } from './pages/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ContactEditComponent } from './pages/contact-edit/contact-edit.componen
     ChartComponent,
     UserMsgComponent,
     ContactEditComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,10 @@
 export class Contact {
   static index = 100;
   constructor(
-    public _id?: string,
     public name: string = '',
     public email: string = '',
-    public phone: string = ''
+    public phone: string = '',
+    public _id?: string
   ) {}
 
   setId?(id: string = 'u' + ++Contact.index) {

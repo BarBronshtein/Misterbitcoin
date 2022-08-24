@@ -23,7 +23,7 @@ export class BitcoinService {
         map((res) => {
           this.cache.currency = res;
           localStorage.setItem(this.CACHE_KEY, JSON.stringify(this.cache));
-          return res;
+          return res * coins;
         })
       );
   }

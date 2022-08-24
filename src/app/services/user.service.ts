@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Contact } from '../models';
 import { Move } from '../models/move.model';
 
 @Injectable({
@@ -23,10 +24,12 @@ export class UserService {
     this.loggedinUser = user;
   }
 
-  private signup(name: string) {
-    this.loggedinUser = { name, coins: 100, moves: [] };
-    localStorage.setItem(this.USER_KEY, JSON.stringify(this.loggedinUser));
-    return this.loggedinUser;
+  public addMove(contact: Contact, amount: number) {
+    return this._addMove(contact, amount);
+  }
+
+  public signup(name: string) {
+    return this._signup(name);
   }
 
   public getMoves(contactId: string) {
@@ -38,5 +41,26 @@ export class UserService {
   public getLastMoves(n: number = 3) {
     const startIdx = this.loggedinUser.moves.length - n;
     return this.loggedinUser.moves.slice(startIdx).sort(() => -1);
+  }
+
+  private _signup(name: string) {
+    this.loggedinUser = { name, coins: 100, moves: [] };
+    localStorage.setItem(this.USER_KEY, JSON.stringify(this.loggedinUser));
+    return this.loggedinUser;
+  }
+
+  private _addMove(contact: Contact, amount: number) {
+    const user = this.loggedinUser;
+    if (user.coins - amount < 0) return;
+    user.coins -= amount;
+
+    const move = {
+      toId: contact._id,
+      to: contact.name,
+      at: Date.now(),
+      amount,
+    };
+    user.moves.push(move);
+    return user;
   }
 }
