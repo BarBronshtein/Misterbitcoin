@@ -4,6 +4,22 @@ $grad-color-1: #fbdb89;
 $grad-color-2: #f48982;
 $gradient: linear-gradient(to right bottom, $grad-color-1, $grad-color-2);
 
+body {
+  scrollbar-width: thin;
+  scrollbar-color: $primary #eeee;
+  &::-webkit-scrollbar {
+    width: 8px;
+    &-thumb {
+      background-color: $primary;
+      border-radius: 100px;
+      border: 1px none #ffffff;
+    }
+    &-track {
+      background-color: #eeee;
+    }
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -76,4 +92,26 @@ input {
   background: -webkit-linear-gradient(#f48982, #fba860);
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.go-back {
+  background-color: #fff;
+  &:hover {
+    background-image: linear-gradient(to right bottom, #fbdb89, #f48982);
+    color: #fff;
+  }
+}
+
+@media screen and(max-width:850px) {
+  .container {
+    padding-inline: 5vw;
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

@@ -12,6 +12,9 @@
     margin-bottom: 2rem;
     font-size: 1.2em;
     ul {
+      img {
+        width: 24px;
+      }
       a {
         padding: 0.6rem;
         transition: 0.3s border;
