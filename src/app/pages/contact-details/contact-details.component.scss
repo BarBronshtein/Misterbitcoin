@@ -1,0 +1,20 @@
+.contact-details {
+  > * {
+    margin-bottom: 1rem;
+  }
+  h3 {
+    margin: 1rem 0;
+  }
+  img {
+    height: 250px;
+  }
+  .actions {
+    & > :first-child {
+      margin-inline-end: 9rem;
+    }
+    > * {
+      padding: 0.3rem;
+      width: 36.92px;
+    }
+  }
+}

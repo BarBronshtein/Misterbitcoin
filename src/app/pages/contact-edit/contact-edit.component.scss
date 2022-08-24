@@ -25,11 +25,10 @@ form {
     margin: auto;
   }
 }
-.go-back {
-  background-color: #fff;
-  padding: 0.6rem;
-  &:hover {
-    background-image: linear-gradient(to right bottom, #fbdb89, #f48982);
-    color: #fff;
+.btn.go-back {
+  padding: 9px 1px 3px 3px;
+  mat-icon {
+    position: relative;
+    padding: 2px 27px 7px 1px;
   }
 }

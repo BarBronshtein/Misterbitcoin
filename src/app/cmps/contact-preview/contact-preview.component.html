@@ -9,12 +9,14 @@
       <p>Phone: {{ contact.phone }}</p>
     </section>
     <section class="actions">
-      <button (click)="onRemoveContact()" class="remove-btn">X</button>
+      <button (click)="onRemoveContact()" class="remove-btn">
+        <mat-icon>clear</mat-icon>
+      </button>
       <button
         routerLink="{{ '/contact/edit/' + contact._id }}"
         class="remove-btn"
       >
-        Edit
+        <mat-icon>edit</mat-icon>
       </button>
     </section>
   </section>

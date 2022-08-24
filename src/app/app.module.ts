@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgChartsModule } from 'ng2-charts';
+import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app-root/app.component';
@@ -17,6 +18,7 @@ import { ChartComponent } from './cmps/chart/chart.component';
 import { UserMsgComponent } from './cmps/user-msg/user-msg.component';
 import { ContactEditComponent } from './pages/contact-edit/contact-edit.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { SignupComponent } from './pages/signup/signup.component';
     FormsModule,
     HttpClientModule,
     NgChartsModule,
+    BrowserAnimationsModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
