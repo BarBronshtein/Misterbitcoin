@@ -191,7 +191,12 @@ export class ContactService {
 
   private _addContact(contact: Contact) {
     //mock the server work
-    const newContact = new Contact(contact.name, contact.email, contact.phone);
+    const newContact = new Contact(
+      contact.name,
+      contact.email,
+      contact.phone,
+      _getRandomId()
+    );
     if (typeof newContact.setId === 'function')
       newContact.setId(_getRandomId());
     this._contactsDb.push(newContact);

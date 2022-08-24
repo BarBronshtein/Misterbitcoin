@@ -2,11 +2,17 @@
   <section class="info">
     <section class="data">
       <p>Name: {{ contact.name }}</p>
-      <p>email: {{ contact.email }}</p>
-      <p>phone: {{ contact.phone }}</p>
+      <p>Email: {{ contact.email }}</p>
+      <p>Phone: {{ contact.phone }}</p>
     </section>
     <section class="actions">
       <button (click)="onRemoveContact()" class="remove-btn">X</button>
+      <button
+        routerLink="{{ '/contact/edit/' + contact._id }}"
+        class="remove-btn"
+      >
+        Edit
+      </button>
     </section>
   </section>
   <img src="https://robohash.org/{{ contact._id }}?set=set2" />
