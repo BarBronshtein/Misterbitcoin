@@ -1,4 +1,6 @@
 .contact-details {
+  width: min-content;
+  margin: 0 auto calc(2rem + 12px);
   > * {
     margin-bottom: 1rem;
   }
@@ -9,6 +11,7 @@
     height: 250px;
   }
   .actions {
+    display: flex;
     & > :first-child {
       margin-inline-end: 9rem;
     }
