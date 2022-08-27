@@ -21,6 +21,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TransferFundComponent } from './cmps/transfer-fund/transfer-fund.component';
 import { MoveListComponent } from './cmps/move-list/move-list.component';
+import { DateDescPipe } from './pipes/date-desc.pipe';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { MoveListComponent } from './cmps/move-list/move-list.component';
     SignupComponent,
     TransferFundComponent,
     MoveListComponent,
+    DateDescPipe,
   ],
   imports: [
     BrowserModule,
