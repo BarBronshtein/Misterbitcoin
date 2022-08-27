@@ -47,7 +47,6 @@ export class UserService {
 
   private _addMove(contact: Contact, amount: number) {
     const user = this.loggedinUser;
-    if (user.coins - amount < 0) return;
     user.coins -= amount;
 
     const move = {

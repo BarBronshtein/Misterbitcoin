@@ -19,6 +19,8 @@ import { UserMsgComponent } from './cmps/user-msg/user-msg.component';
 import { ContactEditComponent } from './pages/contact-edit/contact-edit.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TransferFundComponent } from './cmps/transfer-fund/transfer-fund.component';
+import { MoveListComponent } from './cmps/move-list/move-list.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UserMsgComponent,
     ContactEditComponent,
     SignupComponent,
+    TransferFundComponent,
+    MoveListComponent,
   ],
   imports: [
     BrowserModule,
