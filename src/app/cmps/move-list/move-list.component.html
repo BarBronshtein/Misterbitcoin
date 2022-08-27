@@ -1,1 +1,13 @@
-<p>move-list works!</p>
+<section class="move-list">
+  <div *ngif="!contact" class="home-page">
+    <h1 class="user-welcome-message text-gradient">Transfer history</h1>
+    <ul class="" *ngif="moves?.length; else noTransfers">
+      <div class="h4" *ngFor="let move; in: moves">
+        <span>{{ move.at | dateDesc }}</span>
+        <span>Coins transfered: {{ move.amount }}</span>
+        <span>To: {{ move.to }}</span>
+      </div>
+    </ul>
+    <h3 class="text-gradient" #noTransfers>No Transfers</h3>
+  </div>
+</section>
