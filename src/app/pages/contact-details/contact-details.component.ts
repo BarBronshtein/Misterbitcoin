@@ -1,7 +1,8 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
 import { Contact } from 'src/app/models';
+import { Move } from 'src/app/models/move.model';
+import { User } from 'src/app/models/user.model';
 import { ContactService } from 'src/app/services/contact.service';
 
 @Component({
@@ -15,8 +16,8 @@ export class ContactDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
   ) {}
+  user!: User;
   contact!: Contact;
-
   ngOnInit(): void {
     this.route.data.subscribe((data) => {
       this.contact = data['contact'];

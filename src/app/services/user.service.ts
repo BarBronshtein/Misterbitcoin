@@ -1,23 +1,24 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, of } from 'rxjs';
 import { Contact } from '../models';
 import { Move } from '../models/move.model';
+import { User } from '../models/user.model';
 import { getRandomId } from './contact.service';
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  USER_KEY: string;
+  USER_KEY: string = 'loggedinUser';
+  constructor() {}
 
-  constructor() {
-    this.USER_KEY = 'loggedinUser';
-  }
-
-  public get loggedinUser() {
-    return JSON.parse(localStorage.getItem(this.USER_KEY) || 'null');
-  }
+  private _user$ = new BehaviorSubject<User | null>(
+    JSON.parse(localStorage.getItem(this.USER_KEY) || 'null')
+  );
+  public user$ = this._user$.asObservable();
 
   public logout() {
     localStorage.setItem(this.USER_KEY, 'null');
+    this._user$.next(null);
   }
 
   public addMove(contact: Contact, amount: number) {
@@ -28,34 +29,42 @@ export class UserService {
     return this._signup(name);
   }
 
+  public get getUser() {
+    return this._user$.value;
+  }
+
   public getMoves(contactId: string) {
-    return this.loggedinUser.moves.filter(
+    return this._user$.value?.moves.filter(
       (move: Move) => move.toId === contactId
     );
   }
 
   public getLastMoves(n: number = 3) {
-    const startIdx = this.loggedinUser.moves.length - n;
-    return this.loggedinUser.moves.slice(startIdx).sort(() => -1);
+    const user = this._user$.value;
+    if (!user) return;
+    const startIdx = user.moves.length - n;
+    return user.moves.length > 3
+      ? user.moves.slice(startIdx).sort(() => -1)
+      : user.moves.sort(() => -1);
   }
 
   private _signup(name: string) {
     const user = { name, coins: 100, moves: [], _id: getRandomId() };
     localStorage.setItem(this.USER_KEY, JSON.stringify(user));
-    return this.loggedinUser;
+    return this._user$.next(user);
   }
 
   private _addMove(contact: Contact, amount: number) {
-    const user = this.loggedinUser;
-    user.coins -= amount;
-
+    if (!this._user$.value) return;
+    const updatedUser = { ...this._user$.value };
+    updatedUser.coins -= amount;
     const move = {
       toId: contact._id,
       to: contact.name,
       at: Date.now(),
       amount,
     };
-    user.moves.push(move);
-    return user;
+    updatedUser.moves.push(move as Move);
+    this._user$.next(updatedUser);
   }
 }

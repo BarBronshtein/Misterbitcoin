@@ -3,6 +3,12 @@
     Transfer coins to {{ contact.name }}
   </h2>
   <span> Amount </span>
-  <input type="number" placeholder="0" [(ngModel)]="amount" />
-  <button class="btn active">Transfer</button>
+  <input
+    min="1"
+    type="number"
+    placeholder="1"
+    [(ngModel)]="amount"
+    [ngModelOptions]="{ standalone: true }"
+  />
+  <button (click)="onTransferCoins()" class="btn active">Transfer</button>
 </form>
