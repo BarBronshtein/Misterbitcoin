@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Contact } from 'src/app/models';
 import { Move } from 'src/app/models/move.model';
@@ -10,29 +10,36 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './move-list.component.html',
   styleUrls: ['./move-list.component.scss'],
 })
-export class MoveListComponent implements OnInit, OnDestroy {
+export class MoveListComponent implements OnInit {
   constructor(private userService: UserService) {}
 
   @Input() contact!: Contact;
-  user!: User;
+  @Input() user!: User;
   moves!: Move[];
   subscriber!: Subscription;
   ngOnInit(): void {
-    this.subscriber = this.userService.user$.subscribe(
-      (user) => (this.user = user as User)
-    );
     this.getMoves();
   }
 
   getMoves() {
-    if (this.contact)
-      this.moves = this.userService.getMoves(
-        this.contact._id as string
-      ) as Move[];
-    else this.moves = this.userService.getLastMoves() as Move[];
-    return this.moves;
+    if (this.contact?._id) this.moves = this.user.moves;
+    else this.moves = this.user.moves.slice(this.user.moves.length - 4);
   }
-  ngOnDestroy(): void {
-    this.subscriber.unsubscribe();
+
+  // getMoves() {
+  //   if (this.contact._id)
+  //     this.moves = this.userService.getMoves(this.contact._id) as Move[];
+  //   else this.moves = this.userService.getLastMoves() as Move[];
+  //   return this.moves;
+  // }
+
+  getTransactions(contactId: string) {
+    return this.user.moves.filter((move) => move.toId === contactId);
+  }
+  getLastTransactions(n: number = 3) {
+    const moveLength = this.user.moves.length;
+    return moveLength > 3
+      ? this.user.moves.slice(moveLength - n).sort(() => -1)
+      : this.user.moves.sort(() => -1);
   }
 }
