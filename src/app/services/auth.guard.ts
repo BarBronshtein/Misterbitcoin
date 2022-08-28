@@ -12,7 +12,7 @@ export class AuthGuard implements CanActivate {
     private userMsgService: UserMsgService
   ) {}
   canActivate(): boolean {
-    if (!this.userService.loggedinUser) {
+    if (!this.userService.getUser) {
       this.router.navigateByUrl('/signup');
       this.userMsgService.setUserMsg(
         'Not logged in please signup if you dont have an acoount'
