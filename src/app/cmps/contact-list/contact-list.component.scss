@@ -1,15 +1,18 @@
 .contact-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  // display: grid;
+  // grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   gap: 1.4rem;
   margin: 2rem 0;
 
-  contact-preview {
-    &:nth-child(3n) {
-      justify-self: end !important;
-    }
-    &:nth-child(3n + 2) {
-      justify-self: center;
-    }
-  }
+  // contact-preview {
+  //   &:nth-child(3n) {
+  //     justify-self: end !important;
+  //   }
+  //   &:nth-child(3n + 2) {
+  //     justify-self: center;
+  //   }
+  // }
 }
