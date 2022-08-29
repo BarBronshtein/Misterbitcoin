@@ -4,7 +4,7 @@
       {{ contact ? "Transfer history" : "Last Transactions" }}
     </h1>
     <ul>
-      <div class="h4" *ngFor="let move of moves">
+      <div class="move" *ngFor="let move of moves">
         <div *ngIf="move.toId === contact?._id; else elseStatement">
           <span> {{ move.at | dateDesc }} </span>
           <span>Transfered {{ move.amount }} coins </span>
