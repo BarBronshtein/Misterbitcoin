@@ -10,6 +10,7 @@
         id="name"
         placeholder="Example: Yona Shcitrit"
         pattern="[a-zA-Z]"
+        required
       />
     </div>
     <div class="form-item">
@@ -20,6 +21,8 @@
         type="text"
         name="phone"
         id="phone"
+        required
+        pattern="[0-9]{10}"
       />
     </div>
     <div class="form-item">
@@ -30,6 +33,8 @@
         type="email"
         name="email"
         id="email"
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+        required
       />
     </div>
 

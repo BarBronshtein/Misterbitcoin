@@ -23,10 +23,13 @@ form {
     width: 30%;
     justify-content: center;
     margin: auto;
+    &.active {
+      font-size: 1.3rem;
+    }
   }
 }
 .btn.go-back {
-  padding: 9px 1px 3px 3px;
+  padding: 12px 1px 3px 3px;
   mat-icon {
     position: relative;
     padding: 2px 27px 7px 1px;
