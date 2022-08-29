@@ -23,7 +23,7 @@ export class MoveListComponent implements OnInit {
 
   getMoves() {
     if (this.contact?._id) this.moves = this.user.moves;
-    else this.moves = this.user.moves.slice(this.user.moves.length - 3);
+    else this.moves = this.user.moves.slice(-3).sort(() => -1);
   }
 
   // getMoves() {
