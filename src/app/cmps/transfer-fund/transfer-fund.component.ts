@@ -38,6 +38,7 @@ export class TransferFundComponent implements OnInit, OnDestroy {
       this.userMsgService.setUserMsg(
         'Insufficent balance please try again later'
       );
+      this.inProcess = false;
       return;
     }
 
